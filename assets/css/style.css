@@ -1,0 +1,18 @@
+*{
+    background-color: black;
+}
+
+.hero {
+    height: 800px;
+    width: 100%;
+    margin-bottom: 25px;
+    background-image: url("../images/marvelimg.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.background-pic{
+    width: 1880px;
+    aspect-ratio: auto 1324 / 744;
+    height: 900px;   
+}
