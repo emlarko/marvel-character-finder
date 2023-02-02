@@ -6,7 +6,7 @@ var resultContentEl = document.querySelector('#result-content');
 var searchFormEl = document.querySelector('#search-form');
 
 function getSearch () {
-    var query = document.location.search
+    var query = document.location.search.split('&');
     
     searchApi(query);
     }
@@ -14,7 +14,7 @@ function getSearch () {
     
     function searchApi (query) {
         var marvelApi = "https://gateway.marvel.com:443/v1/public/characters?name=" + query + "&apikey=" + marvelKey;
-        var OMDbApi = "http://www.omdbapi.com/?apikey=" + OMDbKey + "t=" + query;
+        var OMDbApi = "https://www.omdbapi.com/?apikey=" + OMDbKey + "&t=" + query;
 
         fetch(marvelApi)
         .then(function (response) {
@@ -34,4 +34,4 @@ function getSearch () {
     })
 };
 
-
+getSearch();
