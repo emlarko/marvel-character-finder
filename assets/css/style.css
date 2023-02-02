@@ -2,13 +2,17 @@
     background-color: black;
 }
 
-.hero {
-    height: 800px;
+.container {
+    height: 100vh;
     width: 100%;
+    max-width: 100%;
     margin-bottom: 25px;
     background-image: url("../images/marvelimg.jpeg");
     background-size: cover;
-    background-position: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
 }
 
 .background-pic{
@@ -16,3 +20,38 @@
     aspect-ratio: auto 1324 / 744;
     height: 900px;   
 }
+.search-form{
+    margin-top: 35%;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style the search field */
+  input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  .search-button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: white;
+    color: black;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background: white;
+  }
+  
+ 
