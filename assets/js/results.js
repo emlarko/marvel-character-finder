@@ -5,4 +5,35 @@ var resultTextEl = document.querySelector('#result-text');
 var resultContentEl = document.querySelector('#result-content');
 var searchFormEl = document.querySelector('#search-form');
 
-function searchAPI ()
+function searchAPI () {
+    function getSearch() {
+        var query = document.location.search
+    
+        searchApi(query);
+    }
+    
+    
+    function searchApi (query) {
+        var marvelApi = "https://gateway.marvel.com:443/v1/public/characters?name=" + query + "&apikey=" + marvelKey;
+        var OMDbApi = "http://www.omdbapi.com/?apikey=" + OMDbKey + "t=" + query;
+
+        fetch(marvelApi)
+        .then(function (response) {
+          if (!response.ok) {
+            throw response.json();
+          }
+    
+          return response.json();
+        })
+        
+        fetch(OMDbApi)
+        .then(function (response) {
+          if (!response.ok) {
+            throw response.json();
+          }
+    
+          return response.json();
+        })
+    }
+}
+
