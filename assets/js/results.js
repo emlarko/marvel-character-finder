@@ -5,11 +5,10 @@ var resultTextEl = document.querySelector('#result-text');
 var resultContentEl = document.querySelector('#result-content');
 var searchFormEl = document.querySelector('#search-form');
 
-function searchAPI () {
-    function getSearch() {
-        var query = document.location.search
+function getSearch () {
+    var query = document.location.search
     
-        searchApi(query);
+    searchApi(query);
     }
     
     
@@ -20,20 +19,19 @@ function searchAPI () {
         fetch(marvelApi)
         .then(function (response) {
           if (!response.ok) {
-            throw response.json();
-          }
-    
-          return response.json();
-        })
-        
+            response.json().then(function (data) {
+                console.log(data);
+            })
+        }
+    })
         fetch(OMDbApi)
         .then(function (response) {
-          if (!response.ok) {
-            throw response.json();
-          }
-    
-          return response.json();
-        })
-    }
-}
+        if (!response.ok) {
+        response.json().then(function (data) {
+            console.log(data);
+            })
+        }
+    })
+};
+
 
