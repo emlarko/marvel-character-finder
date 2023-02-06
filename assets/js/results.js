@@ -6,6 +6,7 @@ var comicContent = document.querySelector('#comics');
 var movieContent = document.querySelector('#movies');
 var comicSpan = document.querySelector('#comics')
 var movieSpan = document.querySelector('#movies')
+var movieContent = document.querySelector('#movie-content')
     
 
     function searchApi (query) {
@@ -90,6 +91,44 @@ var movieSpan = document.querySelector('#movies')
             movieSpan.append(plotCard);
 
             document.querySelector('#poster-img').src = poster;
+
+            var actors = data.Actors;
+            console.log('actors', actors);
+            var director = data.Director;
+            console.log('director', director);
+            var writer = data.Writer;
+            console.log('writers', writer);
+            var awards = data.Awards;
+            console.log('awards', awards);
+            var boxOffice = data.BoxOffice;
+            console.log('box office', boxOffice);
+            var imdbRating = data.imdbRating;
+            console.log('imdb rating', imdbRating);
+
+            var movieCard = document.createElement('div');
+            movieCard.classList.add('card-panel', 'red', 'darken-4');
+
+            var movieBody = document.createElement('span');
+            movieBody.classList.add('white-text');
+            movieCard.append(movieBody);
+
+            var movieText = document.createElement('p');
+            movieText.innerHTML = 
+                "<b>Actors: </b>" + actors + "<br/>";
+            movieText.innerHTML += 
+                "<b>Director: </b>" + director + "<br/>";
+            movieText.innerHTML +=
+                "<b>Writers: </b>" + writer + "<br/>";
+            movieText.innerHTML +=
+                "<b>Awards: </b>" + awards + "<br/>";
+            movieText.innerHTML +=
+                "<b>Box Office: </b>" + boxOffice + "<br/>";
+            movieText.innerHTML += 
+                "<b>IMDb Rating: </b>" + imdbRating+ "<br/>";
+
+            movieBody.append(movieText);
+            movieContent.append(movieCard);
+
             })
         
     })
