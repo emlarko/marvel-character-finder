@@ -1,6 +1,6 @@
 body{
     background-color: black;
-    color: white;
+    font-family: Arial;
 }
 
 .container {
@@ -24,6 +24,7 @@ body{
 .search-form{
     margin-top: 35%;
 }
+
 * {
     box-sizing: border-box;
   }
@@ -38,22 +39,11 @@ body{
     background: #f1f1f1;
     color:white;
   }
+
   
   /* Style the submit button */
-  .search-button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: white;
-    color: black;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
-    cursor: pointer;
-  }
   
-  .search-button:hover {
-    background: white;
-  }
+  
+  
   
  
