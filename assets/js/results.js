@@ -40,16 +40,20 @@ var dataCount;
             descriptionBody.classList.add('white-text');
             descriptionCard.append(descriptionBody);
 
+            var descriptionTitle = document.createElement('h3')
+            descriptionTitle.innerHTML = 'Description'
+
+
             var descriptionContent = document.createElement('p');
             descriptionContent.innerHTML =
-                'Description: ' + description;
+                 description;
 
             if (!description) {
                 descriptionContent.innerHTML =
                     'No Description available.'
             }
 
-            descriptionBody.append(descriptionContent);
+            descriptionBody.append(descriptionTitle, descriptionContent);
             comicSpan.append(descriptionCard);
 
             var comicCard = document.createElement('div');
