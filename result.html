@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Marvel Character</title>
 </head>
 <body>
 
   <nav>
-    <div class="nav-wrapper  red darken-4">
+    <div class="nav-wrapper #d50000 red accent-4">
       <a href="homepage.html" class="brand-logo center "><img id="logo" src="./assets/images/marvel-logo.png"></a>
     </div>
   </nav>
@@ -21,21 +25,28 @@
       <div id ="movies"></div>
     
         <div id ="movie-content">
-          <img id="poster-img">
+          <img id="poster-img" >
          
       </div>
     </div>
-
 
     <div class="col s5 pull-s7">
       <div id="comics"></div>
    
     </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4>Invalid Search</h4>
+        <p>Please search for a Marvel Character</p>
+      </div>
+      <div class="modal-footer">
+        <a href="homepage.html" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
   
   
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
       <script src="./assets/js/results.js"></script>
 </body>
 </html>

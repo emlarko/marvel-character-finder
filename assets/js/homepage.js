@@ -8,9 +8,11 @@ function handleSearchFormSubmit(event) {
   var searchInputVal = document.querySelector('#search-input').value;
   if (!searchInputVal) {
     console.error('You need a search input value!');
-    // $(function(){
-    //   document.$('#modal1').modal();
-    // });
+
+    $(document).ready(function(){
+      $('#modal1').modal().modal('open');
+    });
+
     return;
   }
 
@@ -20,3 +22,4 @@ function handleSearchFormSubmit(event) {
 };
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+

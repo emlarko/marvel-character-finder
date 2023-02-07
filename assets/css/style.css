@@ -1,53 +1,70 @@
 body{
-    background-color: black;
-    color: white;
-    font-family: Arial;
+  background-color: rgb(35, 28, 28);
+  color: white;
+  font-family: Arial;
 }
 
 .container {
-    height: 100vh;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 25px;
-    background-image: url("../images/marvelimg.jpeg");
-    background-size: cover;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 25px;
+  background-image: url("../images/marvelimg.jpeg");
+  background-size: cover;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
 }
 
 .background-pic{
-    width: 1880px;
-    aspect-ratio: auto 1324 / 744;
-    height: 900px;   
+  width: 1880px;
+  aspect-ratio: auto 1324 / 744;
+  height: 900px;   
 }
 .search-form{
-    margin-top: 35%;
+  margin-top: 35%;
 }
 
 * {
-    box-sizing: border-box;
-  }
-  
-  /* Style the search field */
-  input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #f1f1f1;
-    color:white;
-  }
-  #logo {
-    display: flex;
-    margin: auto;
-    height: 60px;
-    width: auto;
-  }
-  
-  /* Style the submit button */
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  color:white;
+}
+#logo {
+  display: flex;
+  margin: auto;
+  height: 60px;
+  width: auto;
+}
+
+#movies {
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+#comics {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+#movie-content {
+  margin-right: 40px;
+}
+
+.modal {
+color: black;
+}
+
   
   
   

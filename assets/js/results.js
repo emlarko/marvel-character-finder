@@ -4,14 +4,15 @@ var OMDbKey = "558d2320";
 var query = document.location.search.split('=')[1];
 var comicContent = document.querySelector('#comics');
 var movieContent = document.querySelector('#movies');
-var comicSpan = document.querySelector('#comics')
-var movieSpan = document.querySelector('#movies')
-var movieContent = document.querySelector('#movie-content')
+var comicSpan = document.querySelector('#comics');
+var movieSpan = document.querySelector('#movies');
+var movieContent = document.querySelector('#movie-content');
     
 
     function searchApi (query) {
         var marvelApi = "https://gateway.marvel.com:443/v1/public/characters?name=" + query + "&limit=10&apikey=" + marvelKey;
         var OMDbApi = "https://www.omdbapi.com/?apikey=" + OMDbKey + "&t=" + query;
+        var dataCount;
         var comicData;
         var description;
 
@@ -19,9 +20,18 @@ var movieContent = document.querySelector('#movie-content')
         .then(function (response) {
         response.json().then(function (data) {
                 console.log('data', data);
+                dataCount = data.data.count;
+                console.log(dataCount);
+
+            if (dataCount === 0) {
+                $(document).ready(function(){
+                    $('#modal2').modal().modal('open');
+                  });
+              
+                  return;
+            }
             description = data.data.results[0].description;
-            console.log(description)
-         
+            console.log(description);
 
             var descriptionCard = document.createElement('div');
             descriptionCard.classList.add('card-panel', 'red', 'darken-4');
@@ -33,6 +43,11 @@ var movieContent = document.querySelector('#movie-content')
             var descriptionContent = document.createElement('p');
             descriptionContent.innerHTML =
                 'Description: ' + description;
+
+            if (!description) {
+                descriptionContent.innerHTML =
+                    'No Description available.'
+            }
 
             descriptionBody.append(descriptionContent);
             comicSpan.append(descriptionCard);
@@ -90,8 +105,13 @@ var movieContent = document.querySelector('#movie-content')
             plotBody.append(plotTitle, plotContent);
             movieSpan.append(plotCard);
 
-            document.querySelector('#poster-img').src = poster;
+            var posterImage = document.querySelector('#poster-img');
+            posterImage.src = poster;
+            posterImage.style.border = "8px solid #B71C1C";
+            posterImage.style.borderRadius = "5px";
+            
 
+            var type = data.Type;
             var actors = data.Actors;
             console.log('actors', actors);
             var director = data.Director;
@@ -109,11 +129,13 @@ var movieContent = document.querySelector('#movie-content')
             movieCard.classList.add('card-panel', 'red', 'darken-4');
 
             var movieBody = document.createElement('span');
-            movieBody.classList.add('white-text');
+            movieBody.classList.add('white-text', 'flow-text');
             movieCard.append(movieBody);
 
             var movieText = document.createElement('p');
             movieText.innerHTML = 
+                "<b>Type: </b>" + type + "<br/>";
+            movieText.innerHTML += 
                 "<b>Actors: </b>" + actors + "<br/>";
             movieText.innerHTML += 
                 "<b>Director: </b>" + director + "<br/>";
@@ -126,11 +148,10 @@ var movieContent = document.querySelector('#movie-content')
             movieText.innerHTML += 
                 "<b>IMDb Rating: </b>" + imdbRating+ "<br/>";
 
-            movieBody.append(movieText);
+            movieBody.appendChild(movieText);
             movieContent.append(movieCard);
 
-            })
-        
+            })  
     })
 };
 
