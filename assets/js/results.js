@@ -7,12 +7,10 @@ var movieContent = document.querySelector('#movies');
 var comicSpan = document.querySelector('#comics');
 var movieSpan = document.querySelector('#movies');
 var movieContent = document.querySelector('#movie-content');
-    
+var dataCount;
 
     function searchApi (query) {
         var marvelApi = "https://gateway.marvel.com:443/v1/public/characters?name=" + query + "&limit=10&apikey=" + marvelKey;
-        var OMDbApi = "https://www.omdbapi.com/?apikey=" + OMDbKey + "&t=" + query;
-        var dataCount;
         var comicData;
         var description;
 
@@ -27,9 +25,11 @@ var movieContent = document.querySelector('#movie-content');
                 $(document).ready(function(){
                     $('#modal2').modal().modal('open');
                   });
-              
                   return;
+            } else {
+                searchOMDb(query);
             }
+            
             description = data.data.results[0].description;
             console.log(description);
 
@@ -78,6 +78,10 @@ var movieContent = document.querySelector('#movie-content');
             })
         
     })
+};
+
+function searchOMDb (query) {
+    var OMDbApi = "https://www.omdbapi.com/?apikey=" + OMDbKey + "&t=" + query;
         fetch(OMDbApi)
         .then(function (response) {
         response.json().then(function (data) {
@@ -152,7 +156,8 @@ var movieContent = document.querySelector('#movie-content');
             movieContent.append(movieCard);
 
             })  
-    })
-};
+        })
+    };
+
 
 searchApi(query);
