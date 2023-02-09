@@ -2,15 +2,16 @@ var marvelKey = "910ff7a2993b594f4e47981e53b2dfbf";
 var OMDbKey = "558d2320";
 
 var query = document.location.search.split('=')[1];
-var comicContent = document.querySelector('#comics');
-var movieContent = document.querySelector('#movies');
 var comicSpan = document.querySelector('#comics');
 var movieSpan = document.querySelector('#movies');
 var movieContent = document.querySelector('#movie-content');
+var historyButtonsEl = document.querySelector('#history-buttons');
 var dataCount;
+
 
     function searchApi (query) {
         var marvelApi = "https://gateway.marvel.com:443/v1/public/characters?name=" + query + "&limit=10&apikey=" + marvelKey;
+        var name;
         var comicData;
         var description;
 
@@ -20,6 +21,17 @@ var dataCount;
                 console.log('data', data);
                 dataCount = data.data.count;
                 console.log(dataCount);
+                name = data.data.results[0].name;
+
+                var saveName = function(name) {
+                    var previousSaveHistory = JSON.parse(localStorage.getItem('save-history')) || [];
+                    if (previousSaveHistory.includes(name)) {
+                        return;
+                    } else {
+                    previousSaveHistory.push(name);
+                    localStorage.setItem('save-history', JSON.stringify(previousSaveHistory));
+                    }
+                };
 
             if (dataCount === 0) {
                 $(document).ready(function(){
@@ -28,7 +40,10 @@ var dataCount;
                   return;
             } else {
                 searchOMDb(query);
+                saveName(name);
             }
+
+            comicSpan.innerHTML = " ";
             
             description = data.data.results[0].description;
             console.log(description);
@@ -97,6 +112,8 @@ function searchOMDb (query) {
             var plot = data.Plot
             var poster = data.Poster;
 
+            movieSpan.innerHTML = " ";
+
             var plotCard = document.createElement('div');
             plotCard.classList.add('card-panel', 'red', 'darken-4');
 
@@ -113,11 +130,12 @@ function searchOMDb (query) {
             plotBody.append(plotTitle, plotContent);
             movieSpan.append(plotCard);
 
-            var posterImage = document.querySelector('#poster-img');
+            var posterImage = " ";
+            posterImage = document.querySelector('#poster-img');
             posterImage.src = poster;
+            posterImage.style.marginLeft = "100px";
             posterImage.style.border = "8px solid #B71C1C";
             posterImage.style.borderRadius = "5px";
-            
 
             var type = data.Type;
             var actors = data.Actors;
@@ -132,6 +150,8 @@ function searchOMDb (query) {
             console.log('box office', boxOffice);
             var imdbRating = data.imdbRating;
             console.log('imdb rating', imdbRating);
+
+            movieContent.innerHTML = " ";
 
             var movieCard = document.createElement('div');
             movieCard.classList.add('card-panel', 'red', 'darken-4');
@@ -163,5 +183,39 @@ function searchOMDb (query) {
         })
     };
 
+    var saveHistory = function() {
+        historyButtonsEl.innerHTML = " ";
 
+        var historyTitle = document.createElement('h5');
+        historyTitle.innerHTML = "Search History";
+        historyButtonsEl.append(historyTitle);
+
+        var history = JSON.parse(localStorage.getItem('save-history'));
+       
+        for (let i = 0; i < history.length; i++) {
+          const character = history[i];
+          
+        var historyButton = document.createElement('button');
+        var buttonText = document.createTextNode(character);
+      
+        historyButton.setAttribute('value', value = character);
+        historyButton.appendChild(buttonText);
+        historyButton.classList.add('waves-effect', 'waves-light', 'red', 'darken-4', 'btn');
+        historyButton.style.margin = '5px';
+      
+        historyButtonsEl.appendChild(historyButton);
+        }
+    }
+
+      var buttonClickHandler = function (event) {
+        var query = event.target.getAttribute('value','button');
+       
+        searchApi(query);
+        searchOMDb(query); 
+    };
+
+historyButtonsEl.addEventListener('click', buttonClickHandler);
 searchApi(query);
+saveHistory();
+
+
