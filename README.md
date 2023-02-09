@@ -13,11 +13,9 @@ One of the Api is Marvel Api where we get Marvel charcter information and comics
 
 Provide instructions and examples for use. Include screenshots as needed.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+![Screenshot](assets/images/marvel_screenshot1.png?raw=true "Screenshot")
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![Screenshot](assets/images/marvel_screenshot2.png?raw=true "Screenshot")
 
 ## Credits
 
@@ -25,12 +23,4 @@ Collaborators;
 Emily :https://github.com/emlarko
 Zehra :https://github.com/ZDastan
 Sarabjot :https://github.com/Srabjot
-
-
-
-
-
-
-
-
 
