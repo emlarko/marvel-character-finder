@@ -192,6 +192,7 @@ function searchOMDb (query) {
 
         var history = JSON.parse(localStorage.getItem('save-history'));
        
+    if(history) {
         for (let i = 0; i < history.length; i++) {
           const character = history[i];
           
@@ -205,6 +206,7 @@ function searchOMDb (query) {
       
         historyButtonsEl.appendChild(historyButton);
         }
+    }
     }
 
       var buttonClickHandler = function (event) {
