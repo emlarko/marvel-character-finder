@@ -21,6 +21,18 @@ var dataCount;
                 console.log('data', data);
                 dataCount = data.data.count;
                 console.log(dataCount);
+              
+
+                if (dataCount === 0) {
+                    $(document).ready(function(){
+                        $('#modal2').modal().modal('open');
+                      });
+                      return;
+                } else {
+                    searchOMDb(query);
+                    saveName(name);
+                }
+
                 name = data.data.results[0].name;
 
                 var saveName = function(name) {
@@ -33,16 +45,7 @@ var dataCount;
                     }
                 };
 
-            if (dataCount === 0) {
-                $(document).ready(function(){
-                    $('#modal2').modal().modal('open');
-                  });
-                  return;
-            } else {
-                searchOMDb(query);
-                saveName(name);
-            }
-
+      
             comicSpan.innerHTML = " ";
             
             description = data.data.results[0].description;
