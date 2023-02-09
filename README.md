@@ -2,16 +2,20 @@
 
 ## Description
 
-- It was great experince to be part of this project.
-- User able to search their own favorite charcter to find related information such as charcter description , comics ,movie and movie details.
+- It was great experience to be part of this project.
+- User able to search their own favorite character to find related information such as character description , comics ,movie and movie details.
 As a process we use two different API to gather all information.
-One of the Api is Marvel Api where we get Marvel charcter information and comics and other api is OMDB Api where we get movie information.
-- We had couple of challenge to complate our Marvel website.One of them was to set modal to remind user to search Marvel character if they attend to search non-Marvel charcter and take them back to the home page.
-- We learn about different styling metarials , using and combine two different APIs.
+One of the Api is Marvel Api where we get Marvel character information and comics and other api is OMDb Api where we get movie information.
+- We had couple of challenge to complete our Marvel website.One of them was to set modal to remind user to search Marvel character if they attend to search non-Marvel character and take them back to the home page.
+- We learn about different styling materials , using and combine two different APIs.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+When the user loads the page, they see a background picture with images of Marvel Characters and a search bar. When they search for a Marvel Character, they are redirected to a new page and are presented with information on comic books and the related film information. The characters they search for are then saved as buttons they can click to search again. 
+
+If the search bar is blank when they try to search, they are presented with a modal informing them that the search is invalid and they are redirected to search again. The user is presented with the same modal, and redirected to search again, if the user searches for something that is not in the Marvel Universe.
+
+When on the results page, the user can click on the logo at the top of the page to redirect back to the search page. 
 
 ![Screenshot](assets/images/marvel_screenshot1.png?raw=true "Screenshot")
 
@@ -24,3 +28,7 @@ Emily :https://github.com/emlarko
 Zehra :https://github.com/ZDastan
 Sarabjot :https://github.com/Srabjot
 
+
+**GitHub Page:** 
+
+https://emlarko.github.io/marvel-character-finder/
